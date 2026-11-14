@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>halcyon</title>
+<meta name="description" content="halcyon. 3d animation, yandere simulator mods, ocs">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23401629'/%3E%3Cpath d='M16 25s-9-5.2-9-11.2A4.8 4.8 0 0 1 16 11a4.8 4.8 0 0 1 9 2.8C25 19.8 16 25 16 25z' fill='%23f28cb1'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Gaegu:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#2a0f1c;--bg2:#36121f;--card:#4d1c33;--line:#6e2f4c;--ink:#fbe9f0;--soft:#d9a9bd;--pink:#f28cb1;--hot:#ff4f8b;--paper:#fff3f7;--paperink:#3a1322;--mute:#a0597a}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Zen Kaku Gothic New",system-ui,sans-serif;overflow-x:clip}
+img,video{display:block;max-width:100%;height:auto}
+a{color:var(--pink)}
+h1,h2,h3{font-family:"Dela Gothic One",system-ui,sans-serif;font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,5vw,48px)}
+p{margin:0 0 12px}
+.hand{font-family:Gaegu,"Comic Sans MS",cursive;font-weight:700}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(44px,6vw,90px) max(5vw,16px)}
+.hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:clamp(22px,3vw,36px)}
+.hd .hand{font-size:22px;color:var(--pink);transform:rotate(-2deg)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(42,15,28,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:16px;padding:6px max(5vw,16px)}
+nav .logo{font-family:"Dela Gothic One";font-size:20px;color:var(--ink);text-decoration:none;flex:none}
+nav .links{display:flex;gap:14px;margin-left:auto;overflow-x:auto;scrollbar-width:none;align-items:center}
+nav .links::-webkit-scrollbar{display:none}
+nav a.l{flex:none;color:var(--soft);text-decoration:none;font-size:14px;padding:12px 2px;white-space:nowrap}
+nav a.l:hover,nav a.l:focus-visible{color:var(--pink)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.big{font-size:clamp(64px,12vw,156px);letter-spacing:-.02em}
+.big span{color:var(--pink)}
+.sub{font-size:clamp(17px,2vw,20px);color:var(--soft);margin:16px 0 26px;max-width:36ch}
+.rec{background:var(--paper);color:var(--paperink);border-radius:4px;padding:18px 20px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;font-size:15px;max-width:500px;box-shadow:4px 6px 0 rgba(0,0,0,.25);transform:rotate(-.6deg);position:relative}
+.rec dt{color:var(--mute)}
+.rec dd{margin:0;font-weight:700}
+.rec::after{content:"file no. 001";position:absolute;right:14px;top:-26px;font:700 18px Gaegu,cursive;color:var(--pink)}
+.photo{position:relative;justify-self:center;width:min(100%,440px)}
+.photo .frame{background:var(--paper);padding:14px 14px 40px;transform:rotate(3deg);box-shadow:6px 10px 0 rgba(0,0,0,.25)}
+.photo img{aspect-ratio:1;object-fit:cover;width:100%}
+.tape{position:absolute;width:104px;height:28px;background:rgba(242,140,177,.7);top:-12px;left:46%;transform:rotate(-5deg);z-index:2}
+
+/* hobbies */
+.note{background:var(--paper);color:var(--paperink);border-radius:3px;padding:clamp(24px,4vw,48px) clamp(20px,4vw,48px) clamp(24px,4vw,48px) clamp(44px,6vw,80px);position:relative;transform:rotate(-.4deg);box-shadow:6px 10px 0 rgba(0,0,0,.22);
+ background-image:linear-gradient(90deg,transparent clamp(30px,4.5vw,60px),#f6a9c4 clamp(30px,4.5vw,60px),#f6a9c4 calc(clamp(30px,4.5vw,60px) + 2px),transparent calc(clamp(30px,4.5vw,60px) + 2px)),repeating-linear-gradient(transparent 0 33px,#f3d3df 33px 34px)}
+.note .tape{left:auto;right:12%;top:-14px;transform:rotate(4deg)}
+.hob{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 44px;margin:0;padding:0;list-style:none}
+.hob li h3{font:700 27px/1.1 Gaegu,cursive;margin-bottom:4px}
+.hob li h3::after{content:"";display:block;width:60%;height:6px;margin-top:2px;background:rgba(242,140,177,.45);border-radius:6px;transform:rotate(-1deg)}
+.hob li p{font-size:15px;margin:0;color:#5b2a3d}
+.doodle{position:absolute;width:60px;color:var(--hot)}
+
+/* reel */
+.reel{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px;align-items:start}
+.reel .side{display:grid;gap:20px}
+.vid{background:var(--paper);color:var(--paperink);padding:10px 10px 0;border-radius:3px;box-shadow:6px 10px 0 rgba(0,0,0,.25);transform:rotate(-.5deg)}
+.reel .side .vid:first-child{transform:rotate(.8deg)}
+.reel .side .vid:last-child{transform:rotate(-.9deg)}
+.vid video{width:100%;background:#000;aspect-ratio:16/9;object-fit:contain}
+.vid.main video{aspect-ratio:1920/756}
+.vid .t{padding:10px 6px 14px}
+.vid h3{font:700 26px/1 Gaegu,cursive}
+.vid .t p{color:#5b2a3d;font-size:14px;margin:4px 0 0}
+.warn{font-size:13px;color:var(--soft);margin-top:18px}
+
+/* ocs */
+.ocs{display:grid;gap:clamp(36px,5vw,64px)}
+.oc{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:center}
+.oc:nth-child(2){grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+.oc:nth-child(2) .pic{order:2}
+.pic{all:unset;cursor:zoom-in;display:block;background:var(--paper);padding:10px;box-shadow:6px 10px 0 rgba(0,0,0,.25);transform:rotate(-1.2deg);transition:transform .3s}
+.oc:nth-child(2) .pic{transform:rotate(1.4deg)}
+.pic:hover{transform:rotate(0)!important}
+.pic:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
+.pic img{width:100%}
+.file{background:var(--paper);color:var(--paperink);border-radius:3px;padding:24px;position:relative}
+.file h3{font:700 clamp(32px,4vw,42px)/1 Gaegu,cursive;margin-bottom:12px}
+.file dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;margin:0 0 14px;font-size:15px}
+.file dt{color:var(--mute)}.file dd{margin:0;font-weight:700}
+.file p{font-size:15px}
+.credit{font-size:13px;color:var(--mute);margin:0}
+
+/* friends */
+.pol{all:unset;cursor:zoom-in;display:block;background:var(--paper);padding:14px 14px 60px;box-shadow:6px 10px 0 rgba(0,0,0,.25);transform:rotate(-.8deg);max-width:980px;margin:0 auto;position:relative}
+.pol:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
+.pol .cap{position:absolute;left:20px;right:20px;bottom:14px;color:var(--paperink);font:700 24px Gaegu,cursive;text-align:center}
+.pol .tape{left:8%;top:-12px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:start}
+.letter{background:var(--paper);color:var(--paperink);padding:clamp(22px,3vw,36px);background-image:repeating-linear-gradient(transparent 0 31px,#f1cedb 31px 32px);line-height:32px;box-shadow:6px 10px 0 rgba(0,0,0,.22)}
+.letter p{margin:0 0 32px}.letter p:last-child{margin:0}
+.letter .sig{font:700 26px Gaegu,cursive;color:var(--hot)}
+.postit{background:#ffd6e6;color:var(--paperink);padding:24px 22px 26px;transform:rotate(2.2deg);box-shadow:4px 8px 0 rgba(0,0,0,.25);font:700 21px/1.45 Gaegu,cursive}
+.postit h3{font:700 28px Gaegu,cursive;margin-bottom:8px}
+.postit ul{margin:0;padding-left:20px}
+.postit s{opacity:.6}
+
+/* server */
+.srv{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center;background:var(--paper);color:var(--paperink);border-radius:3px;padding:clamp(22px,4vw,44px);box-shadow:6px 10px 0 rgba(0,0,0,.22);transform:rotate(.4deg);position:relative}
+.srv p{color:#5b2a3d}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:10px 18px;border-radius:6px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:16px;font-family:inherit}
+.btn.pri{background:var(--pink);color:var(--paperink)}
+.btn.sec{background:#ffd6e6;color:var(--paperink)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:3px solid var(--paper);outline-offset:2px}
+.btn svg{width:20px;height:20px;flex:none}
+.alt{background:#ffd6e6;color:var(--paperink);padding:22px;transform:rotate(-2deg);box-shadow:4px 8px 0 rgba(0,0,0,.18)}
+.alt p{color:#5b2a3d;margin:0 0 6px;font-size:15px}
+.alt .u{font:700 26px Gaegu,cursive;color:var(--paperink)}
+
+footer{border-top:1px solid var(--line);padding:24px max(5vw,16px);color:var(--soft);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(20,6,13,.95);display:none;place-items:center;padding:20px}
+.lb.on{display:grid}
+.lb img{max-height:88vh;max-width:min(1400px,100%)}
+.lb button{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:50%;border:0;background:var(--paper);color:var(--paperink);font-size:22px;cursor:pointer}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pic{transition:none}}
+@media(max-width:860px){
+ .hero .wrap,.reel,.about,.oc,.oc:nth-child(2),.srv{grid-template-columns:minmax(0,1fr)}
+ .oc:nth-child(2) .pic{order:0}
+ }
+@media(max-width:600px){.hob{grid-template-columns:minmax(0,1fr)}.rec{font-size:14px}nav a.l{font-size:13px}nav .links{gap:12px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="main"><div class="wrap">
+ <a class="logo" href="#top">halcyon</a>
+ <div class="links">
+  <a class="l" href="#stuff">stuff i like</a>
+  <a class="l" href="#animations">animations</a>
+  <a class="l" href="#ocs">ocs</a>
+  <a class="l" href="#friends">friends</a>
+  <a class="l" href="#server">updates</a>
+ </div>
+</div></nav>
+
+<header class="band hero" id="top"><div class="wrap">
+ <div>
+  <h1 class="big">halcyon<span>.</span></h1>
+  <p class="sub">i animate stuff in blender and mod yandere simulator. sometimes i go outside</p>
+  <dl class="rec">
+   <dt>does</dt><dd>3d animation, rigging, mods</dd>
+   <dt>uses</dt><dd>blender and unity</dd>
+   <dt>server</dt><dd>cresent county</dd>
+   <dt>updates</dt><dd>on my discord server</dd>
+  </dl>
+ </div>
+ <div class="photo">
+  <span class="tape"></span>
+  <div class="frame"><img src="media/halcyon-portrait.jpg" alt="my oc halcyon with long black hair with pink streaks, arms crossed"></div>
+ </div>
+</div></header>
+
+<section class="band" id="stuff"><div class="wrap">
+ <div class="hd"><h2>stuff i like</h2><span class="hand">in no particular order</span></div>
+ <div class="note">
+  <span class="tape"></span>
+  <svg class="doodle" style="right:4%;bottom:-18px" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 50S8 37 8 22a11 11 0 0 1 22-4 11 11 0 0 1 22 4c0 15-22 28-22 28z"/></svg>
+  <ul class="hob">
+   <li><h3>animating</h3><p>idles walks runs jumps and anything else a character needs. i redo things until they move smooth and don't look stiff</p></li>
+   <li><h3>going out</h3><p>walks, food, being out with friends. good for my brain after staring at keyframes for hours</p></li>
+   <li><h3>modding yandere simulator</h3><p>hair, outfits, physics and my own animations put into the game. everything gets posted on my server</p></li>
+   <li><h3>rigging hair</h3><p>ponytails twin tails curls and one set of tentacles. if it's meant to move it gets bones</p></li>
+   <li><h3>coding</h3><p>i learnt it in college and now i'm at uni studying to be a game dev. i also scripted my own auto bundler for yandere sim so i don't have to bundle everything by hand</p></li>
+   <li><h3>collecting ocs</h3><p>i like commissioning ocs and then animating them</p></li>
+   <li><h3>horror</h3><p>slashers and creepy atmospheres</p></li>
+   <li><h3>gaming</h3><p>mostly playing the games i end up modding</p></li>
+  </ul>
+ </div>
+</div></section>
+
+<section class="band" id="animations" style="background:var(--bg2)"><div class="wrap">
+ <div class="hd"><h2>animations</h2><span class="hand">made in blender</span></div>
+ <div class="reel">
+  <div class="vid main">
+   <video src="media/bookbag.mp4" poster="media/bookbag.jpg" controls muted loop playsinline preload="metadata"></video>
+   <div class="t"><h3>bookbag animations</h3><p>idle, walk and sitting with a school bag</p></div>
+  </div>
+  <div class="side">
+   <div class="vid">
+    <video src="media/scared-run.mp4" poster="media/scared-run.jpg" controls playsinline preload="metadata"></video>
+    <div class="t"><h3>scared run</h3><p>my octopus girl running for her life</p></div>
+   </div>
+   <div class="vid">
+    <video src="media/commission.mp4" poster="media/commission.jpg" controls playsinline preload="metadata"></video>
+    <div class="t"><h3>commission</h3><p>a shy idle i made for someone</p></div>
+   </div>
+  </div>
+ </div>
+ <p class="warn">please don't reupload or redistribute my animations</p>
+</div></section>
+
+<section class="band" id="ocs"><div class="wrap">
+ <div class="hd"><h2>my ocs</h2></div>
+ <div class="ocs">
+  <div class="oc">
+   <button class="pic" data-full="media/halcyon-duo.jpg" aria-label="enlarge halcyon art"><img src="media/halcyon-duo.jpg" alt="two renders of halcyon in her brown and pink sailor uniform" loading="lazy" width="1800" height="1350"></button>
+   <div class="file">
+    <h3>halcyon</h3>
+    <dl><dt>hair</dt><dd>black with pink streaks, long ponytail</dd><dt>mood</dt><dd>no emotions, maybe a little happy</dd><dt>habit</dt><dd>crossing her arms</dd></dl>
+    <p>my main oc. her idle is just her crossing her arms because that's what she does</p>
+    <p class="credit">art by nathan erotica</p>
+   </div>
+  </div>
+  <div class="oc">
+   <button class="pic" data-full="media/octopus-girl.jpg" aria-label="enlarge octopus girl art"><img src="media/octopus-girl.jpg" alt="octopus girl with purple twin tails and tentacles in a white sailor uniform" loading="lazy" width="1799" height="1500"></button>
+   <div class="file">
+    <h3>octopus girl</h3>
+    <dl><dt>hair</dt><dd>purple twin tails and tentacles</dd><dt>mood</dt><dd>happy</dd><dt>habit</dt><dd>hand on her hip</dd></dl>
+    <p>the happy one. her tentacle hair has its own rig so it can actually move</p>
+    <p class="credit">art by nathan erotica</p>
+   </div>
+  </div>
+  <div class="oc">
+   <button class="pic" data-full="media/green-oc.jpg" aria-label="enlarge green haired oc art"><img src="media/green-oc.jpg" alt="green haired oc with a cap and very long hair in a navy sailor uniform, front and back" loading="lazy" width="1800" height="1800"></button>
+   <div class="file">
+    <h3>the green one</h3>
+    <dl><dt>hair</dt><dd>green, floor length, one braid</dd><dt>look</dt><dd>cap, navy uniform, red bow</dd></dl>
+    <p>she's the one carrying the bookbag in my animation</p>
+    <p class="credit">art by nathan erotica</p>
+   </div>
+  </div>
+ </div>
+</div></section>
+
+<section class="band" id="friends" style="background:var(--bg2)"><div class="wrap">
+ <div class="hd"><h2>friends</h2><span class="hand">my oc with my friends' ocs</span></div>
+ <button class="pol" data-full="media/friends.jpg" aria-label="enlarge friends picture">
+  <span class="tape"></span>
+  <img src="media/friends.jpg" alt="four ocs in matching white shirts and plaid skirts posing in a classroom" loading="lazy" width="1800" height="1787">
+  <span class="cap">halcyon, pharrell, melie and flaxwawe</span>
+ </button>
+</div></section>
+
+<section class="band" id="about"><div class="wrap">
+ <div class="hd"><h2>about me</h2></div>
+ <div class="about">
+  <div class="letter">
+   <p>hi i'm halcyon. i make 3d animations, mostly anime girls in sailor uniforms, which makes sense if you've ever played yandere simulator</p>
+   <p>it started with wanting characters in the game to move better and turned into rigging, bundling and eventually people commissioning me. i learnt coding in college, which is how i started writing my own tools, and now i'm at uni studying to be a game dev</p><p>i care a lot about motion feeling soft and real, like the hair and skirt still moving after the body stops</p>
+   <p>when i'm not doing that i'm out somewhere or playing something. if you like my stuff join my server</p>
+   <p class="sig">halcyon</p>
+  </div>
+  <div class="postit">
+   <h3>working on</h3>
+   <ul>
+    <li>idles and walks for my ocs</li>
+    <li>uni work</li>
+    <li>making my auto bundler better</li>
+    <li>more hair rigs</li>
+    <li><s>getting a .com</s> done</li>
+   </ul>
+  </div>
+ </div>
+</div></section>
+
+<section class="band" id="server" style="background:var(--bg2)"><div class="wrap">
+ <div class="hd"><h2>updates</h2></div>
+ <div class="srv">
+  <span class="tape" style="left:6%"></span>
+  <div>
+   <h3 style="font-size:clamp(24px,3vw,32px)">cresent county</h3>
+   <p style="margin-top:10px">all my updates go on my discord server. new mods, downloads, sneak peeks of what i'm animating and help with the bundler</p>
+   <div class="btns">
+    <a class="btn pri" href="https://discord.gg/gJegU9Fkb" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4a13 13 0 0 1-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7zM8 15.4c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.6 8 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg>join the server</a>
+    <a class="btn sec" href="https://www.tiktok.com/@xilooo__xi9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V9.1a6.3 6.3 0 1 0 5.4 6.3V8.7a7.9 7.9 0 0 0 4.4 1.4V6.7A4.6 4.6 0 0 1 16.6 2z"/></svg>tiktok @xilooo__xi9</a>
+   </div>
+  </div>
+  <div class="alt">
+   <p>if the invite says it's invalid just add me on discord</p>
+   <div class="u">cottoncandy.skies.</div>
+   <button class="btn pri" id="copy" style="margin-top:10px">copy username</button>
+  </div>
+ </div>
+</div></section>
+
+
+<footer><div class="wrap">
+ <span>made by halcyon, 2026</span>
+ <span>ocs belong to their owners. character art by nathan erotica</span>
+</div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="image viewer"><button id="lbx" aria-label="close">×</button><img id="lbimg" alt=""></div>
+
+<script>
+{
+ /* lightbox */
+ const lb=document.getElementById('lb'),li=document.getElementById('lbimg'),lx=document.getElementById('lbx');
+ let opener=null;
+ document.querySelectorAll('[data-full]').forEach(b=>b.addEventListener('click',()=>{opener=b;li.src=b.dataset.full;li.alt=b.querySelector('img').alt;lb.classList.add('on');lx.focus()}));
+ const close=()=>{if(!lb.classList.contains('on'))return;lb.classList.remove('on');if(opener)opener.focus()};
+ lx.addEventListener('click',close);
+ lb.addEventListener('click',e=>{if(e.target===lb)close()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+ /* copy username */
+ const cp=document.getElementById('copy');
+ cp.addEventListener('click',()=>{
+  const ok=()=>{cp.textContent='copied';setTimeout(()=>cp.textContent='copy username',1600)};
+  try{navigator.clipboard.writeText('cottoncandy.skies.').then(ok,()=>{cp.textContent='copy it from above'})}catch(e){cp.textContent='copy it from above'}
+ });
+
+ /* bookbag video plays when you scroll to it */
+ const bv=document.querySelector('.vid.main video');
+ if(bv&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)bv.play().catch(()=>{});else bv.pause()}),{threshold:.4}).observe(bv);
+ }
+
+}
+</script>
+</body>
+</html>
